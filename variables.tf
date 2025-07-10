@@ -42,7 +42,8 @@ variable "gcp_services" {
   type = list(string)
   default = [
     "bigquery.googleapis.com",
-    "bigquerydatatransfer.googleapis.com"
+    "bigquerydatatransfer.googleapis.com",
+    "cloudbilling.googleapis.com"
   ]
   description = "List of Google Cloud APIs to enable."
 }
