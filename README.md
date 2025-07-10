@@ -7,17 +7,11 @@ GCP terraform module to create the BigQuery dataset to store billing data. Based
 
 The service account running this Terraform script needs the following permissions:
 
-## If Creating a New Project:
-- `roles/resourcemanager.projectCreator` - Create new projects
-- `roles/serviceusage.serviceUsageAdmin` - Enable APIs
-- `roles/bigquery.dataEditor` - Create and manage BigQuery datasets
-
-## If Using an Existing Project:
-- `roles/serviceusage.serviceUsageAdmin` - Enable APIs
-- `roles/bigquery.dataEditor` - Create and manage BigQuery datasets
-
-## Organization Access:
-- `roles/resourcemanager.organizationViewer` - Read organization information
+* Organization Administrator
+* Service Account Admin
+* Service Account Key Admin
+* Service Usage Admin
+* Billing Account Administrator
 
 ## Example Usage
 
