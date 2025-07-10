@@ -54,4 +54,3 @@ jobs:
     - name: Check Validate Status
       if: steps.validate.outcome == 'failure'
       run: exit 1
-	  
