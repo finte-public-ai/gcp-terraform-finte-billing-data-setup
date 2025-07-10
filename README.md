@@ -21,13 +21,13 @@ The service account running this Terraform script needs the following permission
 
 ## Example Usage
 
-The example below uses `ref=main` (which is appended in the URL),  but it is recommended to use a specific tag version (i.e. `ref=1.0.0`) to avoid breaking changes. Go to the release page for a list of published versions. [releases page](https://github.com/finte-ai/gcp-terraform-finte-billing-data-setup/releases) for a list of published versions.
+The example below uses `ref=main` (which is appended in the URL),  but it is recommended to use a specific tag version (i.e. `ref=1.0.0`) to avoid breaking changes. Go to the release page for a list of published versions. [releases page](https://github.com/finte-public-ai/gcp-terraform-finte-billing-data-setup/releases) for a list of published versions.
 
 Replace `YOUR_ORGANIZATON_ID` with the organization ID. i.e. `111111111111`.
 
 ```
 module "finte_billing_data" {
-  source = "git::https://github.com/finte-ai/gcp-terraform-finte-billing-data-setup.git?ref=main"
+  source = "git::https://github.com/finte-public-ai/gcp-terraform-finte-billing-data-setup.git?ref=main"
 
   gcp_org_id                        = "YOUR_ORGANIZATON_ID"
 }
@@ -49,7 +49,7 @@ The following steps demonstrate how to create the billing dataset in GCP using t
 
 1. Add the code above to your terraform project.
 2. Make sure the service account to authenticate this script has the roles permissions.
-3. Replace `main` in `ref=main` with the latest version from the [releases page](https://github.com/finte-ai/gcp-terraform-finte-billing-data-setup/releases).
+3. Replace `main` in `ref=main` with the latest version from the [releases page](https://github.com/finte-public-ai/gcp-terraform-finte-billing-data-setup/releases).
 4. Replace `YOUR_ORGANIZATON_ID` with the GCP organization domain.
 8. Back in your terminal, run `terraform init` to download/update the module.
 9. Run `terraform apply` and **IMPORTANT** review the plan output before typing `yes`.
