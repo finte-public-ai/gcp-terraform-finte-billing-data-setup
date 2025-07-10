@@ -23,13 +23,15 @@ The service account running this Terraform script needs the following permission
 
 The example below uses `ref=main` (which is appended in the URL),  but it is recommended to use a specific tag version (i.e. `ref=1.0.0`) to avoid breaking changes. Go to the release page for a list of published versions. [releases page](https://github.com/finte-public-ai/gcp-terraform-finte-billing-data-setup/releases) for a list of published versions.
 
-Replace `YOUR_ORGANIZATON_ID` with the organization ID. i.e. `111111111111`.
+Replace `YOUR_ORGANIZATON_ID` with the organization ID, i.e. `111111111111`.
+Replace `YOUR_BILLING_ACCOUNT_ID` with the billing account ID that should be assigned to your new project, e.g. `11111A-A1111A-A1AA11"
 
 ```
 module "finte_billing_data" {
   source = "git::https://github.com/finte-public-ai/gcp-terraform-finte-billing-data-setup.git?ref=main"
 
-  gcp_org_id                        = "YOUR_ORGANIZATON_ID"
+  gcp_org_id                  = "YOUR_ORGANIZATON_ID"
+  gcp_billing_account_id      = "YOUR_BILLING_ACCOUNT_ID"
 }
 
 output "finte_billing_data_info" {
