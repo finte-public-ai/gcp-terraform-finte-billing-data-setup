@@ -48,20 +48,15 @@ output "finte_billing_data_info" {
 The following steps demonstrate how to create the billing dataset in GCP using this terraform module.
 
 1. Add the code above to your terraform project.
-2. Make sure the service account to authenticate this script has the roles permissions.
+2. Make sure the service account to authenticate this script has the necessary permissions as mentioned above.
 3. Replace `main` in `ref=main` with the latest version from the [releases page](https://github.com/finte-public-ai/gcp-terraform-finte-billing-data-setup/releases).
 4. Replace `YOUR_ORGANIZATON_ID` with the GCP organization domain.
 8. Back in your terminal, run `terraform init` to download/update the module.
 9. Run `terraform apply` and **IMPORTANT** review the plan output before typing `yes`.
-10. Note the data output at the end of the terraform apply command
+10. Note the data output at the end of the terraform apply command as you will need to input this information to the FinTe "Add Credentials" form.
 
 ### Enable Billing Export
-1. Visit the [billing export page](https://console.cloud.google.com/billing/export)
-2. At the prompt, choose the Cloud Billing account for which you'd like to export billing data. The Billing export page opens for the selected billing account.
-3. On the BigQuery export tab, click Edit settings for each type of data you'd like to export (you should enable it for "Standard usage cost", "Detailed usage cost", and "Pricing"). Each type of data is configured separately.
-4. From the Projects list, select the project that contains your BigQuery dataset (likely "Billing BigQuery").
-5. From the Dataset ID field, select the dataset that you set up to contain your exported Cloud Billing data.  This can be found in the outputs from your terraform apply.
-6. Click Save.
+Once the terraform has created the billing dataset, you will still need to manually configure GCP to extract the billing data to your dataset as detailed in the [Billing Export](https://docs.google.com/document/d/1U9wysY8wVnQMd4If3QJ1wzUZaSlAFZhRCjxnAYTr1eI/edit?tab=t.mkwww84swex5) section of the FinTe Knowledge Base as this is not something that we are able to automate with terraform (see [Resource to export billing data to bigquery #4848](https://github.com/hashicorp/terraform-provider-google/issues/4848) for more information).
 
 ### Add Credentials to FinTe
 You will need to include the Billing Project ID and Billing Dataset ID in the FinTe Credentials page to officially connect FinTe to your GCP instance. You can find the necessary credentials from the output that is generated after your terraform apply command completes successfully, which will look like the following:
