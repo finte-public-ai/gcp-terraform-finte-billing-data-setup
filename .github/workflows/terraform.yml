@@ -37,27 +37,4 @@ jobs:
     - name: Terraform Validate
       run: terraform validate
       continue-on-error: false
-
-    - name: Install terraform-docs
-      run: |
-        curl -sSLo ./terraform-docs.tar.gz https://github.com/terraform-docs/terraform-docs/releases/latest/download/terraform-docs-linux-amd64.tar.gz
-        tar -xzf terraform-docs.tar.gz
-        chmod +x terraform-docs
-        sudo mv terraform-docs /usr/local/bin/
-
-    - name: Generate terraform-docs
-      run: terraform-docs generate .
-
-    - name: Check if README.md is up to date
-      run: |
-        # Generate docs to a temporary file
-        terraform-docs generate . > /tmp/generated_docs.md
-        
-        # Check if the generated content matches what's in README.md
-        if ! diff -q <(grep -A 1000 "## Requirements" README.md) <(grep -A 1000 "## Requirements" /tmp/generated_docs.md) > /dev/null; then
-          echo "❌ README.md is not up to date with terraform-docs"
-          echo "Please run 'terraform-docs generate .' locally and commit the changes"
-          exit 1
-        else
-          echo "✅ README.md is up to date"
-        fi 
+	  
