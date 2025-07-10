@@ -37,4 +37,16 @@ jobs:
     - name: Terraform Validate
       run: terraform validate
       continue-on-error: false
+
+    - name: Report Status
+      run: |
+        echo "✅ All Terraform checks passed successfully"
+        echo "::notice::Terraform validation completed successfully"
+      if: success()
+
+    - name: Report Failure
+      run: |
+        echo "❌ Terraform checks failed"
+        echo "::error::Terraform validation failed"
+      if: failure()
 	  
