@@ -12,6 +12,7 @@ The service account running this Terraform script needs the following permission
 * Service Account Key Admin
 * Service Usage Admin
 * Billing Account Administrator
+* Project Creator
 
 ## Example Usage
 
